@@ -68,7 +68,7 @@ jobs:
           
                        
       - name: Coral Build
-        run: ./coral build --debug=True
+        run: ./cbuild build --debug=True
              
 
       - name: Upload artifacts
