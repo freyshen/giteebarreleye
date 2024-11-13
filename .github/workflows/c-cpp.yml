@@ -1,0 +1,84 @@
+name: CI
+
+on:
+  #push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        label:
+          - el7
+          - el8
+        include:
+          - label: el7
+            container: centos:7
+            install-dependency: yum install -y python3 which
+          - label: el8
+            container: centos:8
+            install-dependency: dnf install -y python3 rsync which
+    
+    container:
+      image: ${{ matrix.container }}
+    
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Some hacks for CentOS 8 (EOL) to work again.
+        if: ${{ matrix.label == 'el8' }}
+        run: |
+          sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-*
+          sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-Linux-*
+          yum upgrade -y
+          yum clean all && yum makecache
+          yum distro-sync -y --allowerasing
+          
+      - name: Extra repos for CentOS8
+        if: ${{ matrix.label == 'el8' }}
+        run: |
+         echo '[ltb-project]'                                              >  /etc/yum.repos.d/ltb-project.repo
+         echo 'name=LTB project packages'                                  >> /etc/yum.repos.d/ltb-project.repo
+         echo 'baseurl=https://ltb-project.org/rpm/$releasever/$basearch'  >> /etc/yum.repos.d/ltb-project.repo
+         echo 'enabled=1'                                                  >> /etc/yum.repos.d/ltb-project.repo
+         echo 'gpgcheck=1'                                                 >> /etc/yum.repos.d/ltb-project.repo
+         echo 'gpgkey=https://www.ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-project' >> /etc/yum.repos.d/ltb-project.repo
+         rpm --import https://www.ltb-project.org/documentation/_static/RPM-GPG-KEY-LTB-project
+         yum install -y epel-release
+
+      - name: Enable PowerTools on CentOS 8.
+        if: ${{ matrix.label == 'el8' }}
+        run: |
+          yum install -y yum-utils
+          yum config-manager --enable PowerTools || :
+          yum config-manager --enable powertools || :
+          
+      - name: Install dependencies
+        run: ${{ matrix.install-dependency }}
+   
+      # - name: Fix CentOS8 dependencies
+      #   if: ${{ matrix.label == 'el8' }}
+      #   run: |
+      #     sed -i 's/python-devel/python36-devel/g' ./pybuild/build_barrele.py
+      #     sed -i 's/postgresql-devel/libpq-devel/g' ./pybuild/build_barrele.py
+      #     sed -i 's/createrepo/createrepo_c/g' ./pybuild/coral_build.py
+      #     sed -i 's/ package_dict, build_pip_dir,/package_dict, build_pip_dir,/g' ./pybuild/coral_build.py
+          
+                       
+      - name: Coral Build
+        run: ./coral build --debug=True
+             
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@master
+        with:
+          name: artifacts-${{ matrix.label }}
+          path: ./coral-*
+      - name: Upload logs
+        uses: actions/upload-artifact@master
+        if: ${{ always() }}  # Upload logs regardless of whether the build failed or not
+        with:
+          name: logs-${{ matrix.label }}
+          path: ./coral_build_*/*.log
