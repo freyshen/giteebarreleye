@@ -56,7 +56,7 @@ jobs:
 
       - name: prepare Build reaf
         run: |
-          ./cbuild build --debug=True --only_plugin=reaf
+          ./cbuild build --debug=True --only_plugin=reaf --e2fsprogs=./e2fsprogs --lustre=./lustre_release
           
       # - name: Coral Build
       #   run: ./cbuild build --debug=True
