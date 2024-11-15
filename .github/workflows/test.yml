@@ -56,10 +56,10 @@ jobs:
       - name: prepare Build reaf
         run: |
           pip3 install pyYAML fire filelock prettytable python-dateutil toml setuptools wcwidth wheel termcolor six
-          ./reaf lustre ls
           
-      # - name: Coral Build
-      #   run: ./cbuild build --debug=True
+      - name: Coral Build
+        run: ./reaf lustre ls
+        # ./cbuild build --debug=True
              
 
       # - name: Upload artifacts
