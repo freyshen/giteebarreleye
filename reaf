@@ -2,7 +2,10 @@
 """
 Coral Reaf commands
 """
+from pybuild.coral import coral_command_bootstrap
 from pyreaf import reaf
 
 if __name__ == "__main__":
+
+    coral_command_bootstrap(False)
     reaf.main()
