@@ -58,8 +58,10 @@ jobs:
           pip3 install pyYAML fire filelock prettytable python-dateutil toml setuptools wcwidth wheel termcolor six
           
       - name: Coral Build
-        run: ./reaf lustre ls
-        # ./cbuild build --debug=True
+        run: |
+          ./reaf lustre ls
+          ./reaf lustre create --release=local/lustre_releases --distro_short=el8 --target_cpu=x86_64 --version=2.15.5
+          ./cbuild build --debug=True
              
 
       # - name: Upload artifacts
