@@ -49,14 +49,13 @@ jobs:
         run: |
           yum install -y yum-utils
           yum config-manager --enable PowerTools || :
-          yum config-manager --enable powertools || :
           
       - name: Install dependencies
         run: ${{ matrix.install-dependency }}
 
       - name: prepare Build reaf
         run: |
-          ./cbuild build --debug=True --only_plugin=reaf --e2fsprogs=./e2fsprogs --lustre=./lustre_release
+          ./reaf - lustre ls
           
       # - name: Coral Build
       #   run: ./cbuild build --debug=True
