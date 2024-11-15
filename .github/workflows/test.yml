@@ -55,7 +55,8 @@ jobs:
 
       - name: prepare Build reaf
         run: |
-          ./reaf - lustre ls
+          pip install pyYAML fire filelock prettytable python-dateutil toml setuptools wcwidth wheel termcolor six
+          ./reaf lustre ls
           
       # - name: Coral Build
       #   run: ./cbuild build --debug=True
