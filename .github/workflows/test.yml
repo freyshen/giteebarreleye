@@ -62,6 +62,8 @@ jobs:
           ./reaf lustre ls
           ./reaf lustre create --release=local/lustre_releases --distro_short=el8 --target_cpu=x86_64 --version=2.15.5
           ./reaf lustre download --release=local/lustre_releases
+          pwd
+          ls
           ./cbuild build --debug=True
              
 
