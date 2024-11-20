@@ -63,18 +63,17 @@ jobs:
           ./reaf lustre create --release=local/lustre_releases --distro_short=el8 --target_cpu=x86_64 --version=2.15.5
           ./reaf lustre download --release=local/lustre_releases
           pwd
-          find ./lustre_releases -type f
-          ./cbuild build --debug=True
-             
+          find ./ -name "*.rpm"
+          ./cbuild build --debug=True             
 
-      # - name: Upload artifacts
-      #   uses: actions/upload-artifact@master
-      #   with:
-      #     name: artifacts-${{ matrix.label }}
-      #     path: ./coral-*
-      # - name: Upload logs
-      #   uses: actions/upload-artifact@master
-      #   if: ${{ always() }}  # Upload logs regardless of whether the build failed or not
-      #   with:
-      #     name: logs-${{ matrix.label }}
-      #     path: ./coral_build_*/*.log
+      - name: Upload artifacts
+        uses: actions/upload-artifact@master
+        with:
+          name: artifacts-${{ matrix.label }}
+          path: ./coral-*
+      - name: Upload logs
+        uses: actions/upload-artifact@master
+        if: ${{ always() }}  # Upload logs regardless of whether the build failed or not
+        with:
+          name: logs-${{ matrix.label }}
+          path: ./coral_build_*/*.log
