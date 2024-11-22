@@ -19,7 +19,7 @@ COLLECTD_URL = ("https://github.com/LiXi-storage/collectd/releases/download/"
                 "collectd-5.12.0.brl3/collectd-5.12.0.brl3.tar.bz2")
 # The sha1sum of Collectd tarball. Need to update together with
 # COLLECTD_URL
-COLLECTD_SHA1SUM = "ff537a6d5f9eda1dfb748911ba04ab7e94662489"
+COLLECTD_SHA1SUM = "7469694df09576b9e5460a0a6ee8d429af962bda"
 PACAKGE_URL_DICT["collectd"] = COLLECTD_URL# The RPM names of Collectd to check
 
 # The deb names of Collectd to check
