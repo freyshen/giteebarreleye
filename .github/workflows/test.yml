@@ -49,7 +49,7 @@ jobs:
         run: |
           yum install -y yum-utils wget
           yum config-manager --enable PowerTools || :
-          yum config-manager --enable PowerTools || :
+          dnf config-manager --set-enabled powertools || :
           
       - name: Install dependencies
         run: ${{ matrix.install-dependency }}
@@ -57,6 +57,7 @@ jobs:
       - name: prepare Build reaf
         run: |
           pip3 install pyYAML fire filelock prettytable python-dateutil toml setuptools wcwidth wheel termcolor six
+          dnf repolist
           
       - name: Coral Build
         run: |
