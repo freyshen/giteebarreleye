@@ -59,6 +59,8 @@ jobs:
           
       - name: Coral Build
         run: |
+          mkdir -p /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/
+          mkdir -p /var/log/coral/build_cache/open/iso_cache/e2fsprogs_release/RPMS/x86_64/
           wget -O /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/lustre-devel-2.15.5-1.el8.x86_64.rpm https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/lustre-devel-2.15.5-1.el8.x86_64.rpm --no-check-certificate
           wget -O /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/kernel-4.18.0-553.5.1.el8_lustre.x86_64.rpm https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/kernel-4.18.0-553.5.1.el8_lustre.x86_64.rpm --no-check-certificate
           wget -O /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/kmod-lustre-osd-ldiskfs-2.15.5-1.el8.x86_64.rpm https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/kmod-lustre-osd-ldiskfs-2.15.5-1.el8.x86_64.rpm --no-check-certificate
