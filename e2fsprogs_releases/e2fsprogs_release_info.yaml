@@ -1,0 +1,4 @@
+distro_short: el8
+files: []
+target_cpu: x86_64
+version: 1.47.1-wc1
