@@ -59,6 +59,10 @@ jobs:
           
       - name: Coral Build
         run: |
+          ./reaf lustre create --release=local/lustre_releases --distro_short=el8 --target_cpu=x86_64 --version=2.15.5
+          ./reaf lustre download --release=local/lustre_releases
+          ./reaf e2fsprogs create --release=local/e2fsprogs_releases --distro_short=el8 --target_cpu=x86_64 --version=1.47.1-wc1
+          ./reaf e2fsprogs download --release=local/e2fsprogs_releases
           mkdir -p /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/
           mkdir -p /var/log/coral/build_cache/open/iso_cache/e2fsprogs_release/RPMS/x86_64/
           wget -O /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/lustre-devel-2.15.5-1.el8.x86_64.rpm https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/lustre-devel-2.15.5-1.el8.x86_64.rpm --no-check-certificate
