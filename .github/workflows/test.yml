@@ -49,6 +49,7 @@ jobs:
         run: |
           yum install -y yum-utils wget
           yum config-manager --enable PowerTools || :
+          yum config-manager --enable PowerTools || :
           
       - name: Install dependencies
         run: ${{ matrix.install-dependency }}
