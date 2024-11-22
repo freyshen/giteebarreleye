@@ -127,7 +127,7 @@ func loadConfig(logger log.Logger) (*ClownfishConfig, error) {
 		stderrString := stderr.String()
 		logger.Error("failed to convert Clownfish config to simple version",
 			     "error", err);
-		now := time.Now().UnixMilli()
+		now := time.Now()
 		stderrFpath := fmt.Sprintf("/tmp/clownf_simple_config.%d.stderr.txt", now)
 		stdoutFpath := fmt.Sprintf("/tmp/clownf_simple_config.%d.stdout.txt", now)
 
