@@ -26,8 +26,8 @@ jobs:
       - name: Some hacks for CentOS 8 (EOL) to work again.
         if: ${{ matrix.label == 'el8' }}
         run: |
-          # sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-*
-          # sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-Linux-*
+          sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-*
+          sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-Linux-*
           yum upgrade -y
           yum clean all && yum makecache
           yum distro-sync -y --allowerasing
