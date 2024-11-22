@@ -47,7 +47,7 @@ jobs:
       - name: Enable PowerTools on CentOS 8.
         if: ${{ matrix.label == 'el8' }}
         run: |
-          yum install -y yum-utils
+          yum install -y yum-utils wget
           yum config-manager --enable PowerTools || :
           
       - name: Install dependencies
