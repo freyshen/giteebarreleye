@@ -73,6 +73,7 @@ jobs:
           wget -O /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/lustre-iokit-2.15.5-1.el8.x86_64.rpm https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/lustre-iokit-2.15.5-1.el8.x86_64.rpm --no-check-certificate
           wget -O /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/kmod-lustre-tests-2.15.5-1.el8.x86_64.rpm https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/kmod-lustre-tests-2.15.5-1.el8.x86_64.rpm --no-check-certificate
           wget -O /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/lustre-tests-2.15.5-1.el8.x86_64.rpm https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/lustre-tests-2.15.5-1.el8.x86_64.rpm --no-check-certificate
+          wget -O /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/kernel-core-4.18.0-553.5.1.el8_lustre.x86_64.rpm https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/kernel-core-4.18.0-553.5.1.el8_lustre.x86_64.rpm --no-check-certificate
           
           
           wget -O /var/log/coral/build_cache/open/iso_cache/e2fsprogs_release/RPMS/x86_64/e2fsprogs-1.47.1-wc1.el8.x86_64.rpm https://downloads.whamcloud.com/public/e2fsprogs/1.47.1.wc1/el8/RPMS/x86_64/e2fsprogs-1.47.1-wc1.el8.x86_64.rpm --no-check-certificate
