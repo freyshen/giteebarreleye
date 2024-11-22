@@ -59,14 +59,22 @@ jobs:
           
       - name: Coral Build
         run: |
-          ./reaf lustre ls
-          ./reaf lustre create --release=local/lustre_releases --distro_short=el8 --target_cpu=x86_64 --version=2.15.5
-          ./reaf lustre download --release=local/lustre_releases
-          ./reaf e2fsprogs create --release=local/e2fsprogs_releases --distro_short=el8 --target_cpu=x86_64 --version=1.46.6-wc1
-          ./reaf e2fsprogs download --release=local/e2fsprogs_releases
-           
-          pwd
-          find ./ -name "*.rpm"
+          wget -O /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/lustre-devel-2.15.5-1.el8.x86_64.rpm https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/lustre-devel-2.15.5-1.el8.x86_64.rpm --no-check-certificate
+          wget -O /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/kernel-4.18.0-553.5.1.el8_lustre.x86_64.rpm https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/kernel-4.18.0-553.5.1.el8_lustre.x86_64.rpm --no-check-certificate
+          wget -O /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/kmod-lustre-osd-ldiskfs-2.15.5-1.el8.x86_64.rpm https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/kmod-lustre-osd-ldiskfs-2.15.5-1.el8.x86_64.rpm --no-check-certificate
+          wget -O /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/lustre-osd-ldiskfs-mount-2.15.5-1.el8.x86_64.rpm https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/lustre-osd-ldiskfs-mount-2.15.5-1.el8.x86_64.rpm --no-check-certificate
+          wget -O /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/kernel-modules-4.18.0-553.5.1.el8_lustre.x86_64.rpm https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/kernel-modules-4.18.0-553.5.1.el8_lustre.x86_64.rpm --no-check-certificate
+          wget -O /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/lustre-2.15.5-1.el8.x86_64.rpm https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/lustre-2.15.5-1.el8.x86_64.rpm --no-check-certificate
+          wget -O /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/kmod-lustre-2.15.5-1.el8.x86_64.rpm https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/kmod-lustre-2.15.5-1.el8.x86_64.rpm --no-check-certificate
+          wget -O /var/log/coral/build_cache/open/iso_cache/lustre_release/RPMS/x86_64/lustre-iokit-2.15.5-1.el8.x86_64.rpm https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/lustre-iokit-2.15.5-1.el8.x86_64.rpm --no-check-certificate
+          wget -O /var/log/coral/build_cache/open/iso_cache/e2fsprogs_release/RPMS/x86_64/e2fsprogs-1.47.1-wc1.el8.x86_64.rpm https://downloads.whamcloud.com/public/e2fsprogs/1.47.1.wc1/el8/RPMS/x86_64/e2fsprogs-1.47.1-wc1.el8.x86_64.rpm --no-check-certificate
+          wget -O /var/log/coral/build_cache/open/iso_cache/e2fsprogs_release/RPMS/x86_64/e2fsprogs-libs-1.47.1-wc1.el8.x86_64.rpm https://downloads.whamcloud.com/public/e2fsprogs/1.47.1.wc1/el8/RPMS/x86_64/e2fsprogs-libs-1.47.1-wc1.el8.x86_64.rpm --no-check-certificate
+          wget -O /var/log/coral/build_cache/open/iso_cache/e2fsprogs_release/RPMS/x86_64/libcom_err-devel-1.47.1-wc1.el8.x86_64.rpm https://downloads.whamcloud.com/public/e2fsprogs/1.47.1.wc1/el8/RPMS/x86_64/libcom_err-devel-1.47.1-wc1.el8.x86_64.rpm --no-check-certificate
+          wget -O /var/log/coral/build_cache/open/iso_cache/e2fsprogs_release/RPMS/x86_64/e2fsprogs-static-1.47.1-wc1.el8.x86_64.rpm https://downloads.whamcloud.com/public/e2fsprogs/1.47.1.wc1/el8/RPMS/x86_64/e2fsprogs-static-1.47.1-wc1.el8.x86_64.rpm --no-check-certificate
+          wget -O /var/log/coral/build_cache/open/iso_cache/e2fsprogs_release/RPMS/x86_64/libss-1.47.1-wc1.el8.x86_64.rpm https://downloads.whamcloud.com/public/e2fsprogs/1.47.1.wc1/el8/RPMS/x86_64/libss-1.47.1-wc1.el8.x86_64.rpm --no-check-certificate
+          wget -O /var/log/coral/build_cache/open/iso_cache/e2fsprogs_release/RPMS/x86_64/e2fsprogs-devel-1.47.1-wc1.el8.x86_64.rpm https://downloads.whamcloud.com/public/e2fsprogs/1.47.1.wc1/el8/RPMS/x86_64/e2fsprogs-devel-1.47.1-wc1.el8.x86_64.rpm --no-check-certificate
+          wget -O /var/log/coral/build_cache/open/iso_cache/e2fsprogs_release/RPMS/x86_64/libcom_err-1.47.1-wc1.el8.x86_64.rpm https://downloads.whamcloud.com/public/e2fsprogs/1.47.1.wc1/el8/RPMS/x86_64/libcom_err-1.47.1-wc1.el8.x86_64.rpm --no-check-certificate
+          wget -O /var/log/coral/build_cache/open/iso_cache/e2fsprogs_release/RPMS/x86_64/libss-devel-1.47.1-wc1.el8.x86_64.rpm https://downloads.whamcloud.com/public/e2fsprogs/1.47.1.wc1/el8/RPMS/x86_64/libss-devel-1.47.1-wc1.el8.x86_64.rpm --no-check-certificate
           ./cbuild build --debug=True             
 
       - name: Upload artifacts
