@@ -31,5 +31,11 @@ files:
   - download_url: https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/lustre-osd-ldiskfs-mount-2.15.5-1.el8.x86_64.rpm
     relative_fpath: RPMS/x86_64/lustre-osd-ldiskfs-mount-2.15.5-1.el8.x86_64.rpm
     sha1sum: c082658f55a0bc56dc7b9791e96b6608b24f9044
+  - download_url: https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/lustre-iokit-2.15.5-1.el8.x86_64.rpm
+    relative_fpath: RPMS/x86_64/lustre-iokit-2.15.5-1.el8.x86_64.rpm
+    sha1sum: c340d8a501400d98c9997b22608c85f859b48216
+  - download_url: https://downloads.whamcloud.com/public/lustre/lustre-2.15.5/el8.10/server/RPMS/x86_64/lustre-tests-2.15.5-1.el8.x86_64.rpm
+    relative_fpath: RPMS/x86_64/lustre-tests-2.15.5-1.el8.x86_64.rpm
+    sha1sum: bee0efc124b17f0f0d6687446a8140c79e913073
 target_cpu: x86_64
 version: 2.15.5
