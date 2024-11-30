@@ -6,7 +6,7 @@ distro_short: el8
 files:
   - name: libss
     relative_fpath: RPMS/x86_64/libss-1.47.1-wc1.el8.x86_64.rpm
-    sha1sum: llead6b728ac370e781e53455854191a3dc67694
+    sha1sum: 11ead6b728ac370e781e53455854191a3dc67694
     download_url: https://downloads.whamcloud.com/public/e2fsprogs/1.47.1.wc1/el8/RPMS/x86_64/libss-1.47.1-wc1.el8.x86_64.rpm
   - name: libcom_err-devel
     relative_fpath: RPMS/x86_64/libcom_err-devel-1.47.1-wc1.el8.x86_64.rpm
@@ -18,7 +18,7 @@ files:
     download_url: https://downloads.whamcloud.com/public/e2fsprogs/1.47.1.wc1/el8/RPMS/x86_64/e2fsprogs-libs-1.47.1-wc1.el8.x86_64.rpm
   - name: e2fsprogs
     relative_fpath: RPMS/x86_64/e2fsprogs-1.47.1-wc1.el8.x86_64.rpm
-    sha1sum: fcaa676eaf598164058e343512098le7fc7ba761
+    sha1sum: fcaa676eaf598164058e3435120981e7fc7ba761
     download_url: https://downloads.whamcloud.com/public/e2fsprogs/1.47.1.wc1/el8/RPMS/x86_64/e2fsprogs-1.47.1-wc1.el8.x86_64.rpm
   - name: e2fsprogs-devel
     relative_fpath: RPMS/x86_64/e2fsprogs-devel-1.47.1-wc1.el8.x86_64.rpm
